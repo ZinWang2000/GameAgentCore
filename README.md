@@ -1,0 +1,1 @@
+GAC (GameAgentCore) is an AI Agent backend for games, supporting MineAgent. It is currently a WIP, and initial testing will begin shortly.
