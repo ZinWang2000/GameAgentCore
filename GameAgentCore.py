@@ -27,7 +27,13 @@ class GameAgentCore:
         self.MCPManager = MCPManager()
         self.Logger.Info("MCPManager Init")
 
-        self.MemoryManager = MemoryManager()
+        self.MemoryManager = MemoryManager(
+            redisHost = config.REDIS_HOST,
+            redisPort = config.REDIS_PORT,
+            mongoHost = config.MONGO_HOST,
+            mongoPort = config.MONGO_PORT,
+            logger = self.Logger,
+        )
         self.Logger.Info("MemoryManager Init")
 
         self.RAGManager = RAGManager(

@@ -10,6 +10,10 @@ MAX_MODEL_CONCURRENCY = 2
 # MCP config
 
 # Memory config
+REDIS_HOST = 'localhost'
+REDIS_PORT = 6379
+MONGO_HOST = 'localhost'
+MONGO_PORT = 27017
 
 # RAG config
 COLLECTION_NAME = 'RAG'
