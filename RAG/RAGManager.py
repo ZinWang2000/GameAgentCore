@@ -6,6 +6,14 @@ from langchain_community.embeddings import DashScopeEmbeddings
 
 class RAGManager:
     def __init__(self, embeddingModel, collectionName, host, port, logger: Logger):
+        """
+        RAG管理类
+        :param embeddingModel:
+        :param collectionName:
+        :param host:
+        :param port:
+        :param logger:
+        """
         self.logger = logger
         self.embedding = DashScopeEmbeddings(model = embeddingModel)
         self.chromaClient = chromadb.HttpClient(
