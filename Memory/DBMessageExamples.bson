@@ -1,0 +1,52 @@
+Message
+{
+    "_id": ObjectId("..."),
+    "session_id": "", //由 user_uuid + entity_uuid 拼接而成，每个对话唯一
+    "message_id": "", // LangChain使用，适配LangGraph预留
+    "time": {
+        "real_time": ISODate("..."),
+        "day_time": uint, // 对话发生时服务器的游戏日期
+        "tick": uint, // 服务器的游戏时间
+    },
+    "metadata": {
+        // 允许写入一些游戏内的数据
+    },
+
+    // 以下为LangChain消息
+    "role": "assistant",
+    "tpye": "ai",
+    "content": "Check something..."
+}
+
+Tool Call
+{
+    "_id": ObjectId("..."),
+    "session_id": "", //由 user_uuid + entity_uuid 拼接而成，每个对话唯一
+    "message_id": "", // LangChain使用，适配LangGraph预留
+    "time": {
+        "real_time": ISODate("..."),
+        "day_time": uint, // 对话发生时服务器的游戏日期
+        "tick": uint, // 服务器的游戏时间
+    },
+    "metadata": {
+        // 允许写入一些游戏内的数据
+    },
+
+    // 以下为LangChain消息
+    "tool_calls": [
+        {
+            "id": "xyz_123", // 工具ID，由LangChain生成
+            "name": "check_inventory", // 工具名
+            "args": {
+                "item_name": "wood",
+                "entity_uuid": "..."
+            }
+        }
+    ],
+    "tool_call_id": "xyz_123",
+    // mcp_result在保存时需要序列化成字符串，LangChain要求tool的消息content必须是字符串
+    "mcp_result": {
+        "status": "success",
+        "count": 64
+    }
+}
